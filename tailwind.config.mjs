@@ -51,6 +51,8 @@ module.exports = {
 			},
 			fontFamily: {
 
+				montserrat: [ "Montserrat", "sans-serif" ],
+				pt_serif: [ "PT Serif", "serif" ],
 
 			}
 
