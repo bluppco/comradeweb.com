@@ -47,6 +47,7 @@ module.exports = {
 			},
 			colors: {
 
+				"neon-gold":"#FDBD01",
 
 			},
 			fontFamily: {
