@@ -46,7 +46,12 @@ module.exports = {
 
 			},
 			colors: {
-
+				color:{
+					primary: "#106ad0",
+					accent1: "#fed9d1",
+					accent2: "##ffeedd",
+					black: "#191919",
+				}
 
 			},
 			fontFamily: {
