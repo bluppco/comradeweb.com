@@ -1,0 +1,58 @@
+---
+
+//IMPORT ASTRO LAYOUTS
+import Container from "@/layouts/container/index.astro"
+
+//IMPORT ASTRO ATOMS
+import HeadingFourTwoXlBoldWhite from "@/atoms/atoms-diksha/headings/four/2xl/bold/white/index.astro"
+import HeadingOneSixXlBold from "@/atoms/atoms-diksha/headings/one/6xl/bold/index.astro"
+import ParagraphTwoXl from "@/atoms/atoms-diksha/paragraphs/2xl/index.astro"
+import ButtonPrimary from "@/atoms/atoms-diksha/buttons/primary/index.astro"
+import Link from "@/atoms/links/index.astro"
+import Picture from "@/atoms/picture/internal/contain/index.astro"
+
+//CONSTANTS
+const content = {
+    title: "Generating Results through Performance Marketing",
+    description: "A full-service digital marketing company specializing in online marketing, SEO, PPC and web design to grow your revenue. Guaranteed!",
+    button_text: "Talk to Marketing experts",
+    button_href: "/",
+    image: "/images/Comrade-Award-winning-Team.webp",
+}
+
+---
+
+<Container>
+    <div class="flex flex-col gap-10 md:flex-row w-full py-10 justify-around items-center lg:items-start">
+        <div class="w-full lg:w-1/2 px-10 flex flex-col gap-8 py-6">
+            <HeadingOneSixXlBold>{ content.title }</HeadingOneSixXlBold>
+            <ParagraphTwoXl>{ content.description }</ParagraphTwoXl>
+            <div>
+                <Link
+                    aria_label="Talk to marketing experts"
+                    href="/"
+                >
+                    <ButtonPrimary>{ content.button_text }</ButtonPrimary>
+                </Link>
+            </div>
+        </div>
+        <div class="w-full md:w-2/5 aspect-[5/6] group relative flex items-center justify-center">
+            <div class="absolute w-full h-full object-cover">
+                <Picture 
+                    alternative_text="Comrade Award winning team"
+                    source={ content.image }
+                />
+            </div>
+            <div class="flex gap-4 items-center z-10">
+                <Link
+                    aria_label="Watch our reel"
+                    href="/"
+                >
+                    <div class="px-4 py-2 md:px-2 md:py-1 lg:px-4 lg:py-2 bg-color-primary rounded text-white text-2xl md:text-lg lg:text-2xl hover:bg-slate-400">►</div>
+                    <HeadingFourTwoXlBoldWhite>Watch our reel</HeadingFourTwoXlBoldWhite>
+                </Link>
+            </div>
+        </div>
+        <!-- embed youtube video  -->
+    </div>
+</Container>
