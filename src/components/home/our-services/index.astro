@@ -1,0 +1,128 @@
+---
+
+//IMPORT ASTRO LAYOUTS
+import Container from "@/layouts/container/index.astro"
+
+//IMPORT ASTRO ATOMS
+import Link from "@/atoms/links/index.astro"
+import Picture from "@/atoms/picture/internal/contain/index.astro"
+
+---
+
+<Container>
+    <div class="flex flex-col items-center justify-center gap-4">
+        <h6 class="uppercase font-bold text-color-accent3 font-montserrat tracking-[0.2em]">Our Services</h6>
+        <h2 class="text-color-black text-center font-montserrat font-bold text-3xl lg:text-5xl">Marketing Agency for All Your Needs</h2>
+        <div class="px-48 pt-4">
+            <p class="font-pt_serif text-base lg:text-lg leading-relaxed text-center">
+                For over a decade, we’ve helped hundreds of businesses succeed using our expertise in digital marketing solutions that help grow your revenue.
+            </p>   
+        </div>
+        <p class="font-montserrat font-bold text-sm tracking-widest text-blue-600 uppercase">talk to specialists now — 
+            <Link
+                aria_label = "Contact us"
+                href="/"
+            >
+                📞 (872) 242 1074
+            </Link>
+        </p>
+            <div class="flex flex-col gap-16 lg:gap-20">
+            <div class="flex flex-col-reverse lg:flex-row justify-between items-center py-10 px-20">
+                <div class="flex flex-col gap-6 w-full lg:w-2/5">
+                    <h4 class="text-2xl text-color-black font-bold font-montserrat">Empower Your Business With Result-Oriented Web Design</h4>
+                    <p class="font-pt_serif text-base lg:text-lg leading-relaxed text-slate-500">
+                        Your online presence is defined by your website. It introduces your brand to the world, exhibits your unique benefits, and inspires visitors to take action. That’s where Comrade comes in. We began as a small website design company and over the last decade, have grown to offer a full range of marketing services, all designed to attract traffic and convert leads into paying customers.
+                    </p>
+                    <Link
+                        aria_label = "Contact us"
+                        href="/"
+                    >
+                    <p class="font-montserrat font-bold text-sm tracking-widest text-blue-600 uppercase">improve your website
+                        <span class="hover:px-2">→</span>
+                    </p>
+                    </Link>
+                </div>
+                <div class="group relative w-full lg:w-2/5">
+                    <div class="w-80 aspect-video absolute -top-10 -right-20 rounded">
+                        <Picture
+                            alternative_text = "web-design-review"
+                            source = "/images/services/service-1/small-review.webp"
+                        />
+                    </div>
+                    <div class="w-full aspect-square rounded">
+                        <Picture
+                            alternative_text = "web-design-image"
+                            source = "/images/services/service-1/main-image.webp"
+                        />
+                    </div>
+                    <div class="w-72 aspect-video absolute -bottom-10 -left-20 rounded">
+                        <Picture
+                            alternative_text = "web-design-graph"
+                            source = "/images/services/service-1/wave-with-percent.webp"
+                        />
+                    </div>
+                </div>
+            </div>
+            <div class="flex flex-col lg:flex-row justify-between items-center py-10 px-20">
+                <div class="group relative w-full lg:w-2/5">
+                    <div class="w-full aspect-square rounded-xl">
+                        <Picture
+                            alternative_text = "seo-services-image"
+                            source = "/images/services/service-2/main-image.webp"
+                        />
+                    </div>
+                    <div class="w-72 aspect-video absolute -bottom-10 -right-20 rounded">
+                        <Picture
+                            alternative_text = "seo-services-table"
+                            source = "/images/services/service-2/table-with-results.webp"
+                        />
+                    </div>
+                </div>
+                <div class="flex flex-col gap-6 w-full lg:w-2/5">
+                    <h4 class="text-2xl text-color-black font-bold font-montserrat">SEO Services That Put You Ahead of the Competition</h4>
+                    <p class="font-pt_serif text-base lg:text-lg leading-relaxed text-slate-500">
+                        Approximately 94% of all organic search traffic is handled by Google, and 80% of online users use search engines to locate products, services, and information. Therefore, the success of online businesses depends heavily on an effective SEO strategy. In the last 15 years, our SEO agency has generated more than $250M in revenue for our clients through different search engine optimization services. Not to mention, we are the first digital marketing company to offer a guarantee on our work.
+                    </p>
+                    <Link
+                        aria_label = "Contact us"
+                        href="/"
+                    >
+                    <p class="font-montserrat font-bold text-sm tracking-widest text-blue-600 uppercase">Improve visibility and SEO ranking
+                        <span class="hover:px-2">→</span>
+                    </p>
+                    </Link>
+                </div>
+            </div>
+            <div class="flex flex-col-reverse lg:flex-row justify-between items-center py-10 px-20">
+                <div class="flex flex-col gap-6 w-full lg:w-2/5">
+                    <h4 class="text-2xl text-color-black font-bold font-montserrat">Substantially increase your ROI with PPC Services</h4>
+                    <p class="font-pt_serif text-base lg:text-lg leading-relaxed text-slate-500">
+                        According to Google, businesses typically earn $2 for every $1 spent on Google Ads. The returns generated by Comrade clients are even better, yielding $10 for every $1 invested. Our high-performance websites and advertising campaigns work together to deliver unparalleled returns on investment for our clients, increasing their revenue in measurable ways.
+                    </p>
+                    <Link
+                        aria_label = "increase your roi"
+                        href="/"
+                    >
+                    <p class="font-montserrat font-bold text-sm tracking-widest text-blue-600 uppercase">increase your roi
+                        <span class="hover:px-2">→</span>
+                    </p>
+                    </Link>
+                </div>
+                <div class="group relative w-full lg:w-2/5">
+                    <div class="w-40 aspect-video absolute -top-10 -left-20 rounded">
+                        <Picture
+                            alternative_text = "facebook"
+                            source = "/images/services/service-3/facebook.webp"
+                        />
+                    </div>
+                    <div class="w-full aspect-square rounded">
+                        <Picture
+                            alternative_text = "roi-image"
+                            source = "/images/services/service-3/main-image.webp"
+                        />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</Container>
