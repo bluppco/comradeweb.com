@@ -1,0 +1,206 @@
+---
+
+//IMPORT ASTRO LAYOUTS
+import Container from "@/layouts/container/index.astro"
+
+//IMPORT ASTRO ATOMS
+import ButtonPrimary from "@/atoms/atoms-diksha/buttons/primary/shadow/index.astro"
+import FormLabelInput from "@/atoms/atoms-diksha/forms/labels/input/index.astro"
+import FormLabelSelect from "@/atoms/atoms-diksha/forms/labels/select/index.astro"
+import HeadingFourTwoXlBold from "@/atoms/atoms-diksha/headings/four/2xl/bold/index.astro"
+import HeadinSixLgBold from "@/atoms/atoms-diksha/headings/six/lg/bold/index.astro"
+import HeadinSixLgBoldWhite from "@/atoms/atoms-diksha/headings/six/lg/bold/white/index.astro"
+import HeadingSixBoldUppercaseOrange from "@/atoms/atoms-diksha/headings/six/bold/uppercase/orange/index.astro"
+import HeadingTwo5xlBoldCenter from "@/atoms/atoms-diksha/headings/two/5xl/bold/center/index.astro"
+import Link from "@/atoms/links/index.astro"
+
+const industryOptions = [
+    "Health of your website",
+    "SEO performance based on 20 unique factors",
+    "Content performance",
+    "Competitive analysis",
+    "Conversion rate (how many website visitors become client leads)",
+]
+
+const industryselect = [
+    "Legal",
+    "Construction & Home Improvement",
+    "Ecommerce",
+    "Small Businesses",
+    "Healthcare",
+    "Manufacturing",
+    "Senior Living Facilities",
+    "Real Estate",
+    "B2B Services & SAAS",
+    "Other"
+]
+
+const helpSelect = [
+    "Need more visitors, leads and/or sales",
+    "Need to redesign current website",
+    "Need to design and build a new website/app",
+    "Need to create branding",
+    "Seeking Partnership or Employment",
+    "Other"
+]
+
+---
+
+<div class="py-16 lg:py-28 bg-color-light_blue">
+    <Container>
+        <div class="flex flex-col items-center justify-center gap-4">
+            <HeadingSixBoldUppercaseOrange>GET IN TOUCH</HeadingSixBoldUppercaseOrange>
+            <HeadingTwo5xlBoldCenter>Book a complimentary online assessment of your marketing performance.</HeadingTwo5xlBoldCenter>
+        </div>
+        <div class="group relative py-12">
+            <div class="bg-[url(/images/contact-form-bg.webp)] bg-no-repeat bg-cover h-[640px] lg:h-[1024px] lg:aspect-[2/3] rounded flex flex-col px-12 py-24">
+                <div class="py-4">
+                    <HeadinSixLgBoldWhite>WE WILL EVALUATE:</HeadinSixLgBoldWhite>
+                </div>
+                <ul class="list-disc text-color-primary space-y-4 px-4 w-2/3">
+                    {
+
+                        industryOptions.map( ( option ) => 
+
+                            <li>
+                                <HeadinSixLgBoldWhite>{ option }</HeadinSixLgBoldWhite>
+                            </li>
+
+                        )  
+
+                    }
+                </ul>
+                <div class="py-8 w-2/3">
+                    <HeadinSixLgBoldWhite>Every performance evaluation includes a strategic action plan to drive positive momentum for your organization.</HeadinSixLgBoldWhite>
+                </div>
+            </div>
+            <div class="lg:absolute lg:top-24 lg:right-20 flex flex-col gap-10">
+                <div class="lg:w-[640px] bg-gradient-to-r from-color-light_pink to-color-dark_pink py-10 px-8 rounded-lg shadow-md">
+                    <div class="flex">
+                        <HeadingTwo5xlBoldCenter>Let's Get In Touch</HeadingTwo5xlBoldCenter>
+                    </div>
+                    <form class="flex flex-col gap-4 p-6">
+                        <div class="grid grid-cols-2 gap-8">
+                            <div>
+                                <FormLabelInput 
+                                    id="firstName" 
+                                    name="firstName" 
+                                    placeholder=""
+                                    required = { true } 
+                                    text="FIRST NAME *" 
+                                    type="text" 
+                                />
+                            </div>
+                            <div>
+                                <FormLabelInput 
+                                    id="lastName" 
+                                    name="lastName" 
+                                    placeholder=""  
+                                    required = { true } 
+                                    text="LAST NAME *" 
+                                    type="text" 
+                                />
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-8">
+                            <div>
+                                <FormLabelInput 
+                                    id="email" 
+                                    name="email" 
+                                    placeholder="" 
+                                    required = { true } 
+                                    text="EMAIL *" 
+                                    type="text" 
+                                />
+                            </div>
+                            <div>
+                                <FormLabelInput 
+                                    id="phone" 
+                                    name="phone" 
+                                    placeholder="" 
+                                    required = { true } 
+                                    text="PHONE NUMBER *" 
+                                    type="tel" 
+                                />
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-8">
+                            <div>
+                                <FormLabelInput 
+                                    id="company" 
+                                    name="company" 
+                                    placeholder=""
+                                    required = { true } 
+                                    text="COMPANY *" 
+                                    type="text" 
+                                />
+                            </div>
+                            <div>
+                                <FormLabelSelect
+                                    id="industry" 
+                                    name="industry" 
+                                    placeholder="Industry *"
+                                    required = { true } 
+                                    text="INDUSTRY *" 
+                                >
+                                    {
+
+                                        industryselect.map( ( option ) => 
+
+                                            <option value={ option }>{ option }</option>
+
+                                        )
+
+                                    }
+                                </FormLabelSelect>
+                            </div>
+                        </div>
+                        <div>
+                            <FormLabelSelect
+                                id="help" 
+                                name="help" 
+                                placeholder="Please Select"
+                                required = { true } 
+                                text="WHAT CAN WE HELP YOU WITH? *"
+                            >
+                                {
+                                
+                                    helpSelect.map( ( option ) => 
+
+                                        <option value={ option }>{ option }</option>
+
+                                    )
+
+                                }
+                            </FormLabelSelect>
+                        </div>
+                        <div>
+                            <FormLabelInput 
+                                id="message" 
+                                name="message" 
+                                placeholder="Please, tell us more about your project" 
+                                required = { true } 
+                                text="MESSAGE" 
+                                type="textarea" 
+                            />
+                        </div>
+                        <div class="flex justify-center">
+                            <Link 
+                                aria_label="submit"
+                                href="/"
+                            >
+                                <ButtonPrimary>SUBMIT YOUR REQUEST</ButtonPrimary>
+                            </Link>
+                        </div>
+                    </form>
+                </div>
+                <div class="bg-white lg:w-[640px] rounded py-6 px-10">
+                    <HeadinSixLgBold>Chat With Our Specialists or Call Us</HeadinSixLgBold>
+                    <div class="py-2">
+                        <HeadingFourTwoXlBold><span class="mr-2">📞</span>(872) 242 1074</HeadingFourTwoXlBold>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </Container>
+</div>
