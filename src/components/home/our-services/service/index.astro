@@ -4,7 +4,7 @@
 import HeadingFour2xlBold from "@/atoms/atoms-diksha/headings/four/2xl/bold/index.astro"
 import Link from "@/atoms/links/index.astro"
 import ParagraphLgSlate from "@/atoms/atoms-diksha/paragraphs/lg/slate/index.astro"
-import ParagraphSmUppercaseBlue from "@/atoms/atoms-diksha/paragraphs/sm/uppercase/blue/index.astro"
+import ParagraphSmUppercasePrimary from "@/atoms/atoms-diksha/paragraphs/sm/uppercase/primary/index.astro"
 
 //GET ASTRO PROPS
 const { 
@@ -28,10 +28,10 @@ const {
             aria_label = { link_label }
             href={ link }
         >
-            <ParagraphSmUppercaseBlue>
+            <ParagraphSmUppercasePrimary>
                 { button_text }
                 <span class="hover:px-2">→</span>
-            </ParagraphSmUppercaseBlue>
+            </ParagraphSmUppercasePrimary>
         </Link>
     </div>
     <slot />
