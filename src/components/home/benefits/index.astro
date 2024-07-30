@@ -1,0 +1,75 @@
+---
+
+// IMPORT ASTRO LAYOUTS
+import ContainerSmall from "@/layouts/container-small/index.astro"
+
+// IMPORT ASTRO ATOMS
+import HeadingTwoBoldwhite from "@/atoms/atoms-shiva/headings/two/four-xl/bold/white/index.astro"
+import ParagraphLgSemiboldWhite from "@/atoms/atoms-shiva/paragraphs/lg/semibold/white/index.astro"
+import ParagraphLgWhite from "@/atoms/atoms-shiva/paragraphs/lg/white/index.astro"
+import ParagraphXlWhite from "@/atoms/atoms-shiva/paragraphs/xl/white/index.astro"
+import PictureContain from "@/atoms/picture/internal/contain/index.astro"
+
+// HARDCODED DATA
+const data = {
+
+    description: "Transparency and accountability are important to us. Consequently, we only work with new clients when we have the data to verify our ability to deliver results. Ultimately, every business wants a high level of confidence in their marketing partner, and Comrade can provide that peace of mind.",
+    source: "/images/benefits.webp",
+    title: "Reap the benefits of a marketing team without the building it yourself",
+
+}
+const card_data = [
+
+    {
+        description: "Among our team are SEO experts, copywriters, editors, and developers, all of whom are truly committed to their craft.",
+        source: "/icons/expert.svg",
+        title: "Dedicated Teams",
+    },
+    {
+        description: "If you don’t see concrete results from our services, then we haven't done our job. The data-driven and measurable nature of our process ensures a successful marketing campaign.",
+        source: "/icons/roi.svg",
+        title: "Driven by ROI",
+    },
+
+]
+
+---
+
+<section class="bg-black py-20">
+    <ContainerSmall>
+        <div class="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-20">
+            <div class="flex flex-col gap-8">
+                <HeadingTwoBoldwhite>{ data.title }</HeadingTwoBoldwhite>
+                <div class="size-full">
+                    <PictureContain
+                        alternative_text=""
+                        source={ data.source }
+                    />
+                </div>
+            </div>
+            <div class="flex flex-col gap-10">
+                <ParagraphXlWhite>{ data.description }</ParagraphXlWhite>
+                <div class="flex flex-col gap-6">
+                    {
+
+                        card_data.map( ( item ) =>(
+
+                            <div class="flex flex-col gap-4">
+                                <div class="size-20">
+                                    <PictureContain
+                                        alternative_text=""
+                                        source={ item.source }
+                                    />
+                                </div>
+                                <ParagraphLgSemiboldWhite>{ item.title }</ParagraphLgSemiboldWhite>
+                                <ParagraphLgWhite>{ item.description }</ParagraphLgWhite>
+                            </div>
+
+                        ))
+
+                    }
+                </div>
+            </div>
+        </div> 
+    </ContainerSmall>
+</section>

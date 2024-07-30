@@ -1,0 +1,208 @@
+---
+
+// IMPORT ASTRO LAYOUTS
+import ContainerSmall from "@/layouts/container-small/index.astro"
+
+// IMPORT ASTRO COMPONENTS
+import CaseStudyCard from "@/components/home/case-studies/card/index.astro"
+
+// IMPORT ASTRO ATOMS
+import HeadingTwoBoldCenter from "@/atoms/atoms-shiva/headings/two/four-xl/bold/center/index.astro"
+import Link from "@/atoms/links/index.astro"
+import ParagraphLgBlue from "@/atoms/atoms-shiva/paragraphs/lg/blue/index.astro"
+import PictureContain from "@/atoms/picture/internal/contain/index.astro"
+
+// HARDCODED DATA
+const data = {
+
+    link_text: "View all cases",
+    link: "/",
+    title_highlight: "Reach Their Goals",
+    title: "Helping Businesses ",
+
+}
+const card_data = [
+
+    {
+
+        description:"“Over the lapse of the year, leads have significantly increased thus increasing the amount of work and revenue generated, leading to the expansion of our team. Comrade provided excellent service; they've been on time, remained within budget, and provided a great ROI.”",
+        image_card_data: [
+
+            {
+                number:"651%",
+                description:"INCREASE IN CLIENT INQUIRIES",
+            },
+            {
+                number:"900%",
+                description:"INCREASE IN SEO TRAFFIC",
+            },
+
+        ],
+        image_description:"Our team developed a well-rounded marketing strategy to help Barr & Douds emerge as a leading player in the region. We focused on building a strong online presence by creating a high-performance website, designing effective landing pages, implementing targeted SEO, formulating a content strategy, and launching a PPC campaign. Our efforts were aimed at increasing relevant traffic, generating leads, and increasing their market share, which helped solidify their position as a top regional firm.",
+        image_subtitle:"Barr & Douds Attorneys",
+        image_title:"LEGAL",
+        link_text:"VIEW CASE STUDY",
+        link:"/",
+        name:"LOREN BARR / BARR AND DOUDS ATTORNEYS",
+        source:"/images/barr-douds.webp",
+        subtitle:"192% Increase in qualified leads.",
+        title:"San Francisco-based trust litigation lawyer achieves a ",
+        user_source:"/images/loren-barr.webp",
+
+    },
+    {
+
+        description:"“Working with the Comrade team has been a most pleasant experience! Their dedication and passion for what they do is exemplified by their unrivaled customer support and attentiveness to the specific needs of our business. You did a great job for us and I would recommend you to anyone.”",
+        image_card_data: [
+
+            {
+                number:"780%",
+                description:"INCREASE IN SALES INQUIRIES",
+            },
+            {
+                number:"20X",
+                description:"INCREASE IN SEO TRAFFIC",
+            },
+
+        ],
+        image_description:"Granite Selection faced challenges in the highly competitive market and lacked online visibility. In partnership with Comrade, the company revamped its business model, introducing a new website and a digital marketing strategy. This transformation accelerated Granite Selection's growth in the stone fabrication industry in Chicago, resulting in a significant increase in market share, client inquiries, and revenue.",
+        image_subtitle:"GRANITE SELECTION",
+        image_title:"HOME IMPROVEMENTS",
+        link_text:"VIEW CASE STUDY",
+        link:"/",
+        name:"PAUl BATASHEV / GRANITE SELECTION",
+        source:"/images/granite.webp",
+        subtitle:"780% surge in qualified leads.",
+        title:"A stone fabricator based in Chicago has experienced a ",
+        user_source:"/images/paul-batashev.webp",
+
+    },
+    {
+
+        description:"“Comrade has worked hard to help generate new revenue for our business. Margo is great! She is professional, very easy to work with, and always looking at the bigger picture. The entire comrade team has supplied valuable feedback to help our practice grow.”",
+        image_card_data: [
+
+            {
+                number:"9X",
+                description:"INCREASE IN SEO TRAFFIC",
+            },
+            {
+                number:"11X",
+                description:"INCREASE IN SITE VISITERS",
+            },
+
+        ],
+        image_description:"Despite being a bustling practice, Kraff Eye Institute struggled with growing their practice due to ineffective marketing efforts. Seeking top positions amidst rising LASIK competition, they partnered with Comrade. Following an in-depth analysis, Comrade devised a strategic digital marketing plan aimed at elevating the institute's presence to reach new clients.",
+        image_subtitle:"Kraff Eye Institute",
+        image_title:"HEALTHCARE",
+        link_text:"VIEW CASE STUDY",
+        link:"/",
+        name:"JAMES MURRAY / KRAFF EYE INSTITUTE",
+        source:"/images/kraff.webp",
+        subtitle:"375% Increase in qualified leads.",
+        title:"World-renowned LASIK surgeon achieves ",
+        user_source:"/images/james.webp",
+
+    },
+
+]
+
+---
+
+<section class="py-16">
+    <ContainerSmall>
+        <div class="flex flex-col gap-6">
+            <div class="flex flex-col gap-6 items-center justify-center">
+                <HeadingTwoBoldCenter>{ data.title }<span class="text-blue-500">{ data.title_highlight }</span></HeadingTwoBoldCenter>
+                <Link href={ data.link }>
+                    <div class="flex gap-2">
+                        <ParagraphLgBlue>{ data.link_text }</ParagraphLgBlue>
+                        <div class="w-6 aspect-[10/1]">
+                            <PictureContain
+                                alternative_text=""
+                                source="/icons/link-arrow.svg"
+                            />
+                        </div>
+                    </div>
+                </Link>
+            </div>
+            <div class="casestudy-swiper-container relative overflow-hidden">
+                <div class="swiper-wrapper">
+                    {
+
+                        card_data.map( ( data ) => (
+
+                            <div class="swiper-slide">
+                                <CaseStudyCard
+                                    description={ data.description }
+                                    image_card_data= { data.image_card_data }
+                                    image_description={ data.image_description }
+                                    image_subtitle={ data.image_subtitle }
+                                    image_title={ data.image_title }
+                                    link_text={ data.link_text }
+                                    link={ data.link }
+                                    name={ data.name }
+                                    source={ data.source }
+                                    subtitle={ data.subtitle }
+                                    title={ data.title }
+                                    user_source={ data.user_source }
+                                />
+                            </div>
+                            
+                        ))
+
+                    }
+                </div>
+                <div class="button-prev z-20 absolute top-1/2 left-0 size-10 max-lg:!hidden">
+                    <PictureContain
+                        alternative_text=""
+                        source="/icons/left-arrow.svg"
+                    />
+                </div>
+                <div class="button-next z-20 absolute top-1/2 right-0 size-10 max-lg:!hidden">
+                    <PictureContain
+                        alternative_text=""
+                        source="/icons/right-arrow.svg"
+                    />
+                </div>
+            </div>
+        </div>
+    </ContainerSmall>
+</section>
+
+<script>
+    // IMPORT SWIPER JS AND ITS MODULES
+    import Swiper from 'swiper/bundle'
+    import 'swiper/css/bundle'
+
+    // INITIALISE SWIPER
+    document.addEventListener('DOMContentLoaded', () => {
+
+        const swiper = new Swiper('.casestudy-swiper-container', {
+
+            // AOTUMATIC SLIDES
+            autoplay: {
+
+                delay: 5000,
+
+            },
+            loop: true,
+            breakpoints: {
+
+                1024: {
+
+                    navigation: {
+
+                        nextEl: ".button-next",
+                        prevEl: ".button-prev",
+
+                    },
+
+                }
+
+            },
+           
+        })
+
+    })
+</script>
