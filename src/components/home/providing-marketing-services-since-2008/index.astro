@@ -1,0 +1,144 @@
+---
+
+// IMPORT ASTRO LAYOUTS
+import Container from "@/layouts/container/index.astro"
+
+// IPORT ASTRO ATOMS
+import HeadingFourExtraLargeBold from "@/atoms/atoms-nandini/headings/four/xl/bold/index.astro"
+import HeadingTwo5xlBoldCenter from "@/atoms/atoms-nandini/headings/two/5xl/bold/center/index.astro"
+import HeadingThree4xlBold from "@/atoms/atoms-nandini/headings/three/4xl/bold/index.astro"
+import Link from "@/atoms/links/index.astro"
+import ParagraphExtralarge from "@/atoms/atoms-nandini/paragraphs/xl/index.astro"
+import ParagraphLargeBold from "@/atoms/atoms-nandini/paragraphs/lg/bold/index.astro"
+import ParagraphLarge from "@/atoms/atoms-nandini/paragraphs/lg/index.astro"
+import ParagraphSmallBoldBlue from "@/atoms/atoms-nandini/paragraphs/sm/bold/blue/index.astro"
+import PictureInternal from "@/atoms/picture/internal/index.astro"
+
+// GOALS ARRAY
+const goals = [
+
+    {
+        alternative_text:"Icon",
+        description:"Elevate your business by reaching your target audience, converting them into customers through effective SEO strategies, engaging content, precise PPC campaigns, and lead management that yields high-quality leads.",
+        source:"/icon/marketing-1.svg",
+        title:"Get more clients",
+    },
+    {
+        alternative_text:"Icon",
+        description:"We offer end-to-end marketing services that allow you to focus on your core business while we manage all your marketing needs. Our comprehensive approach helps your brand gain visibility and influence in your industry.",
+        source:"/icon/marketing-2.svg",
+        title:"Grow your brand",
+    },
+    {
+        alternative_text:"Icon",
+        description:"Having a good online reputation is crucial as 90% of people rely on service reviews. We can help you by increasing your reviews, registering in relevant directories, and monitoring your online reputation.",
+        source:"/icon/marketing-3.svg",
+        title:"Improve your reputation",
+    },
+    {
+        alternative_text:"Icon",
+        description:"Our ROI-oriented approach, lead-generating content, and conversion strategies can help your business achieve its goals and increase revenue every year.",
+        source:"/icon/marketing-4.svg",
+        title:"Increase revenue",
+    },
+
+]
+
+// HARDCODED DATA
+const data = {
+
+    alternative_text:"Image",
+    description1:"At Comrade, our top priority is to help you grow your business and achieve your goals. When you work with us, you’ll:",
+    description2:"Get a Marketing Solution Tailored For Your Business!",
+    indetail:"Let’s Discuss Your Project",
+    sub_title:"Your Goals are Our Goals",
+    title:"Providing Marketing Services Since 2008",
+
+}
+
+---
+<section class="my-10">
+    <Container>
+        <div class="space-y-16">
+            <HeadingTwo5xlBoldCenter>{ data.title }</HeadingTwo5xlBoldCenter>
+            <div class="flex flex-wrap gap-5 md:grid md:grid-cols-2 md:gap-20">
+                <div class="ml-8 pb-28  md:pb-0">
+                    <div class="relative">
+                        <div class="mt-10 w-2/3 aspect-[1.7/2]">
+                            <PictureInternal 
+                                alternative_text=""
+                                source="/image/marketing-services-Pricing.webp"
+                            />
+                        </div>
+                        <div class="absolute w-1/5 aspect-[1.8/2] -top-16 -left-5 shadow-xl">
+                            <PictureInternal 
+                                alternative_text=""
+                                source="/image/marketing-services-cases-increase.webp"
+                            />
+                        </div>
+                        <div class="absolute w-2/5 aspect-[3/2.5] -bottom-20 -left-5 shadow-xl">
+                            <PictureInternal 
+                                alternative_text=""
+                                source="/image/marketing-services-campaign-budget.webp"
+                            />
+                        </div>
+                    </div>
+                </div>
+                <div class="space-y-4 md:space-y-8">
+                    <HeadingThree4xlBold>{ data.sub_title }</HeadingThree4xlBold>
+                    <ParagraphExtralarge>{ data.description1 }</ParagraphExtralarge>
+                    <div class="grid grid-rows-4 gap-5">
+                    {
+
+                        goals.map( ( item ) => {
+
+                            return (
+                                    <div class="flex gap-4">
+                                        <div class="w-24">
+                                            <div class="p-2 size-12 bg-gray-100">
+                                                <PictureInternal 
+                                                    alternative_text={ item.alternative_text }
+                                                    source={ item.source }
+                                                />
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <ParagraphLargeBold>{ item.title }</ParagraphLargeBold>
+                                            <ParagraphLarge>{ item.description }</ParagraphLarge>
+                                        </div>
+                                    </div>
+                                    
+                            )
+
+                        })
+
+                    }
+                    <div class="bg-gradient-to-r from-orange-100 to-red-100 p-5 space-y-6 flex gap-4">
+                        <div class="space-y-5">
+                            <HeadingFourExtraLargeBold>{ data.description2 }</HeadingFourExtraLargeBold>
+                            <div class="group">
+                                <Link aria_label={ data.indetail } href="/#">
+                                    <ParagraphSmallBoldBlue>{ data.indetail }
+                                        <span class="inline-block size-5 pt-2 group-hover:translate-x-2 transition delay-100 duration-200">
+                                            <PictureInternal
+                                                alternative_text="Icon"
+                                                source="/icon/arrow-right.svg"
+                                            />
+                                        </span>
+                                    </ParagraphSmallBoldBlue>
+                                </Link>
+                            </div>
+                        </div>
+                        <div class="h-16 aspect-[2/1.5]">
+                            <PictureInternal 
+                                alternative_text={ data.alternative_text }
+                                source="/image/marketing-services-windows.webp"
+                            />
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </Container>
+</section>
