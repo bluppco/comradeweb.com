@@ -1,0 +1,61 @@
+---
+
+//IMPORT ASTRO ATOMS
+import Link from "@/atoms/links/index.astro"
+import Picture from "@/atoms/picture/internal/contain/index.astro"
+
+const socials = [
+    {
+        name:"Instagram",
+        logo:"/logos/instagram.svg",
+        link:"https://www.instagram.com/comradeweb/"
+    },
+    {
+        name:"Youtube",
+        logo:"/logos/youtube.svg",
+        link:"https://www.youtube.com/channel/UCPuwprh8cjcCxDl55lDXBPQ"
+    },
+    {
+        name:"Facebook",
+        logo:"/logos/facebook.svg",
+        link:"https://www.facebook.com/ComradeWeb"
+    },
+    {
+        name:"Linkedin",
+        logo:"/logos/linkedin.svg",
+        link:"https://www.linkedin.com/company/comrade-web-studios"
+    },
+    {
+        name:"Yelp",
+        logo:"/logos/yelp.svg",
+        link:"https://www.yelp.com/biz/comrade-digital-marketing-agency-chicago"
+    },
+]
+
+---
+
+<div class="flex gap-8">
+    {
+
+        socials.map( social => {
+
+            return (
+
+                <Link 
+                    aria_label={ social.name }
+                    href={ social.link }
+                >
+                    <div class="w-5 aspect-square">
+                        <Picture 
+                            alternative_title={ social.name }
+                            source={ social.logo}
+                        />
+                    </div>
+                </Link>
+
+            )
+
+        })
+
+    }
+</div>

@@ -51,5 +51,6 @@ export const collections = {
 
     "footer-column": footerColumnCollection,
     "footer-row": footerwRowCollection,
+    "footer-locations": footerLocationCollection,
 
 }
