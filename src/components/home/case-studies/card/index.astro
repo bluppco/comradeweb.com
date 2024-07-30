@@ -1,0 +1,119 @@
+---
+
+// IMPORT ASTRO ATOMS
+import HeadingThreeFourXlBold from "@/atoms/atoms-shiva/headings/three/four-xl/bold/index.astro"
+import Link from "@/atoms/links/index.astro"
+import PictureContain from "@/atoms/picture/internal/contain/index.astro"
+import PrargarphBaseGray from "@/atoms/atoms-shiva/paragraphs/base/semibold/gray/index.astro"
+import PrargarphBaseSemibold from "@/atoms/atoms-shiva/paragraphs/base/semibold/index.astro"
+import PrargarphBaseSemiboldWhite from "@/atoms/atoms-shiva/paragraphs/base/semibold/white/index.astro"
+import PrargarphBaseSm from "@/atoms/atoms-shiva/paragraphs/sm/index.astro"
+import PrargarphBaseSmWhite from "@/atoms/atoms-shiva/paragraphs/sm/white/index.astro"
+import PrargarphLg from "@/atoms/atoms-shiva/paragraphs/lg/index.astro"
+import PrargarphSmBlue from "@/atoms/atoms-shiva/paragraphs/sm/semibold/blue/index.astro"
+import PrargarphThreeXlBlue from "@/atoms/atoms-shiva/paragraphs/three-xl/bold/blue/index.astro"
+import PrargarphTwoXlBold from "@/atoms/atoms-shiva/paragraphs/two-xl/bold/index.astro"
+import PrargarphTwoXlBoldWhite from "@/atoms/atoms-shiva/paragraphs/two-xl/bold/white/index.astro"
+
+// GET ASTRO PROPS
+const {
+
+    description,
+    image_card_data,
+    image_description,
+    image_subtitle,
+    image_title,
+    link_text,
+    link,
+    name,
+    source,
+    subtitle,
+    title,
+    user_source,
+
+} = Astro.props
+
+---
+
+<div class="flex flex-col gap-4 min-h-dvh lg:px-14">
+    <div class="size-12">
+        <PictureContain
+            alternative_text=""
+            source="/icons/quote.svg"
+        />
+    </div>
+    <div class="flex flex-col-reverse lg:flex-row gap-20">
+        <div class="flex flex-col gap-6 lg:w-1/2">
+            <HeadingThreeFourXlBold>{ title }<span class="text-blue-500">{ subtitle }</span></HeadingThreeFourXlBold>
+            <PrargarphLg>{ description }</PrargarphLg>
+            <div class="flex items-center gap-2">
+                <div class="size-12">
+                    <PictureContain
+                        alternative_text=""
+                        source={ user_source }
+                    />
+                </div>
+                <PrargarphBaseGray>{ name }</PrargarphBaseGray>
+            </div>
+            <Link href={ link }>
+                <div class="flex gap-2">
+                    <PrargarphSmBlue>{ link_text }</PrargarphSmBlue>
+                    <div class="w-6 aspect-[10/1]">
+                        <PictureContain
+                            alternative_text=""
+                            source="/icons/link-arrow.svg"
+                        />
+                    </div>
+                </div>
+            </Link>
+        </div>
+        <div class="lg:w-1/2">
+            <Link href={ link }>
+                <div class="relative flex flex-col items-center justify-center gap-6">
+                    <div class="relative group">
+                        <div class="size-full">
+                            <PictureContain
+                                alternative_text=""
+                                source={ source }
+                            />
+                        </div>
+                        <div class="hidden lg:group-hover:flex flex-col gap-2 bg-black bg-opacity-70 absolute inset-0 w-full h-full p-6">
+                            <PrargarphBaseSemiboldWhite>{ image_title }</PrargarphBaseSemiboldWhite>
+                            <PrargarphTwoXlBoldWhite>{ image_subtitle }</PrargarphTwoXlBoldWhite>
+                            <PrargarphBaseSmWhite>{ image_description }</PrargarphBaseSmWhite>
+                        </div>
+                    </div>
+                    <div class="lg:absolute -bottom-24 flex items-center justify-center max-w-[500px] bg-white shadow-lg p-6">
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            {
+
+                                image_card_data.map( ( data ) => (
+
+                                    <div class="flex flex-col gap-2">
+                                        <div class="flex items-center gap-1">
+                                            <div class="size-4">
+                                                <PictureContain
+                                                    alternative_text=""
+                                                    source="/icons/arrow-up.svg"
+                                                />
+                                            </div>
+                                            <PrargarphThreeXlBlue>{ data.number }</PrargarphThreeXlBlue>
+                                        </div>
+                                        <PrargarphBaseGray>{ data.description }</PrargarphBaseGray>
+                                    </div>
+
+                                ))
+
+                            }
+                        </div>
+                    </div>
+                    <div class="lg:hidden flex flex-col gap-2 w-full h-full">
+                        <PrargarphBaseSemibold>{ image_title }</PrargarphBaseSemibold>
+                        <PrargarphTwoXlBold>{ image_subtitle }</PrargarphTwoXlBold>
+                        <PrargarphBaseSm>{ image_description }</PrargarphBaseSm>
+                    </div>
+                </div>
+            </Link>
+        </div>
+    </div>    
+</div>

@@ -3,7 +3,7 @@
 // IMPORT ASTRO COMPONENTS
 import Benefits from "@/components/home/benefits/index.astro"
 import CaseStudies from "@/components/home/case-studies/index.astro"
-import FAQs from "@/components/home/faqs/index.astro"
+import FAQs from "@/components/home/faqs/jsx/index"
 import Footer from "@/components/common/footer/index.astro"
 import GetInTouch from "@/components/home/get-in-touch/index.astro"
 import Header from "@/components/common/header/index.astro"
@@ -26,6 +26,6 @@ import Reviews from "@/components/home/reviews/index.astro"
 <OurServices />
 <Benefits />
 <Reviews />
-<FAQs />
+<FAQs client:load />
 <GetInTouch />
 <Footer />

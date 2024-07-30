@@ -1,0 +1,127 @@
+---
+
+// IMPORT ASTRO LAYOUTS
+import ContainerSmall from "@/layouts/container-small/index.astro"
+
+// IMPORT ASTRO ATOMS 
+import HeadingTwoBoldCenter from "@/atoms/atoms-shiva/headings/two/four-xl/bold/center/index.astro"
+import PictureContain from "@/atoms/picture/internal/contain/index.astro"
+
+// HARDCODED DATA
+const data = {
+
+    title: "Recognized as a Leading Digital Marketing Agency",
+
+}
+const logo_data = [
+
+    {
+        alternative_text: "",
+        source: "/logos/clutch.webp",
+    },
+    {
+        alternative_text: "",
+        source: "/logos/platinum.svg",
+    },
+    {
+        alternative_text: "",
+        source: "/logos/davey.svg",
+    },
+    {
+        alternative_text: "",
+        source: "/logos/fwa.svg",
+    },
+    {
+        alternative_text: "",
+        source: "/logos/digital-marketing.svg",
+    },
+    {
+        alternative_text: "",
+        source: "/logos/awwwards.svg",
+    },
+    {
+        alternative_text: "",
+        source: "/logos/excellent.svg",
+    },
+    {
+        alternative_text: "",
+        source: "/logos/expertise.svg",
+    },
+
+]
+
+---
+
+<section class="py-14">
+    <ContainerSmall>
+        <div class="flex flex-col gap-10">
+            <div class="flex items-center justify-center">
+                <HeadingTwoBoldCenter>{ data.title }</HeadingTwoBoldCenter>
+            </div>
+            <div class="recognition-swiper-container overflow-hidden">
+                <div class="swiper-wrapper">
+                    {
+    
+                        logo_data.map( ( logo ) => (
+    
+                            <div class="swiper-slide !flex items-center justify-center">
+                                <div class="size-24">
+                                    <PictureContain
+                                        alternative_text={ logo.alternative_text }
+                                        source={ logo.source }
+                                    />
+                                </div>
+                            </div>
+    
+                        ))
+    
+                    }
+                </div>
+            </div>
+        </div>
+    </ContainerSmall>
+</section>
+
+<script>
+    // IMPORT SWIPER JS AND ITS MODULES
+    import Swiper from 'swiper/bundle'
+    import 'swiper/css/bundle'
+
+    // INITIALISE SWIPER
+    document.addEventListener('DOMContentLoaded', () => {
+
+        const swiper = new Swiper('.recognition-swiper-container', {
+
+            // SLIDES TO SHOW IN MOBILE VIEW
+            slidesPerView: 2,
+            spaceBetween: 10,
+            breakpoints: {
+
+                // SLIDES TO SHOW OVER SM WINDOW VIEW
+                640: {
+
+                    slidesPerView: 4,
+                    spaceBetween: 20,
+    
+                },
+                // SLIDES TO SHOW OVER MEDIUM WINDOW VIEW
+                750: {
+
+                    slidesPerView: 5,
+                    spaceBetween: 20,
+
+                },
+                // SLIDES TO SHOW OVER LARGE WINDOW VIEW
+                1024: {
+
+                    slidesPerView: 8,
+                    spaceBetween: 20,
+
+                },
+
+            },
+            
+        })
+
+    })
+</script>
