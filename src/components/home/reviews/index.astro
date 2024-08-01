@@ -107,20 +107,44 @@ const data = {
                     </div>
                     <ParagraphGray>{ data.sub_title }</ParagraphGray>
                 </div>
-                <div class="flex flex-wrap sm:flex gap-4 justify-center">
+                <div class="flex flex-wrap sm:flex gap-4 justify-center items-center">
                     {
     
-                        images.map( ( item ) => {
+                        images.map( ( item , index ) => {
+
+                            if ( index == 5 ){
+
+                                return (
     
-                            return (
-    
-                                    <div class="w-20 aspect-[4/1]">
-                                        <PictureInternal
-                                            alternative_text={ item.alternative_text }
-                                            source={ item.source }
-                                        />
+                                    <div>
+                                        <div class="w-20 aspect-[4/2]">
+                                            <PictureInternal
+                                                alternative_text={ item.alternative_text }
+                                                source={ item.source }
+                                            />
+                                        </div>
                                     </div>
-                            )
+                                
+                                )
+
+                            } else {
+
+                                return (
+
+                                    <div>
+                                        <div class="w-20 aspect-[4/1]">
+                                            <PictureInternal
+                                                alternative_text={ item.alternative_text }
+                                                source={ item.source }
+                                            />
+                                        </div>
+                                    </div>
+    
+                                )
+
+                            }
+    
+                            
     
                         })
     
