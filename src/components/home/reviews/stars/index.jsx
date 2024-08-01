@@ -13,9 +13,9 @@ const stars = () => {
             );
         }
 
-        return stars;
+        return stars
     
     };
 }
 
-export default stars;
+export default stars

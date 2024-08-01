@@ -4,12 +4,13 @@
 import Container from "@/layouts/container/index.astro"
 
 // IMPORT JSX COMPONENT
+import Cards from "@/components/home/reviews/cards/index.astro"
 import Stars from "@/components/home/reviews/stars/index.jsx"
 
 // IMPORT ASTRO ATOMS
 import Link from "@/atoms/links/index.astro"
 import HeadingFourBold from "@/atoms/atoms-nandini/headings/four/bold/index.astro"
-import HeadingTwo4xlBoldCenter from "@/atoms/atoms-nandini/headings/two/4xl/bold/center/index.astro"
+import HeadingTwo4xlBoldCenter from "@/atoms/atoms-nandini/headings/two/5xl/bold/center/index.astro"
 import ParagrapExtraSmallBlue from "@/atoms/atoms-nandini/paragraphs/xs/blue/index.astro"
 import ParagraphGray from "@/atoms/atoms-nandini/paragraphs/gray/index.astro"
 import ParagraphItalic from "@/atoms/atoms-nandini/paragraphs/italic/index.astro"
@@ -124,10 +125,11 @@ const data = {
                         })
     
                     }
+                    
                 </div>
             </div>
             
-
+            <!-- <Cards /> -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center gap-10 xl:mx-52 2xl:mx-72 card-animated">
                 
                     {
@@ -136,39 +138,17 @@ const data = {
 
                             return ( 
 
-                                    <div class="border p-4">
-                                        <div class="flex justify-between pb-5">
-                                            <div class="flex">
-                                                <Stars/>
-                                            </div>
-                                            <div class="w-20 aspect-[4/1]">
-                                                <PictureInternal
-                                                    alternative_text={ item.alternative_text }
-                                                    source={ item.icon_source }
-                                                />
-                                            </div>
-                                        </div>
-                                        <div class="space-y-10">
-                                            <div class="flex gap-2">
-                                                <div class="w-20 aspect-[1/1] rounded-xl overflow-hidden">
-                                                    <PictureInternal
-                                                        alternative_text={ item.alternative_text }
-                                                        source={ item.image_source }
-                                                    />
-                                                </div>
-                                                <div class="flex items-center">
-                                                    <HeadingFourBold>{ item.title }</HeadingFourBold>
-                                                </div>
-                                            </div>
-                                            <ParagraphItalic>{ item.description }</ParagraphItalic>
-                                            <div>
-                                                <Link aria_label={ item.indetail } href="/portfolio/blackhawk-supply/">
-                                                    <ParagrapExtraSmallBlue>{ item.indetail }</ParagrapExtraSmallBlue>
-                                                </Link>
-                                            </div>
-                                            
-                                        </div>
-                                    </div>
+                                    <Cards
+                                        
+                                        alternative_text={ item.alternative_text }
+                                        description={ item.description }
+                                        icon_source={ item.icon_source }
+                                        image_source={ item.image_source }
+                                        indetail={ item.indetail }
+                                        link={ item.link }
+                                        title={ item.title }
+                                    
+                                    />
 
                             )
 
