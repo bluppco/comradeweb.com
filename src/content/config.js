@@ -47,10 +47,37 @@ const footerLocationCollection = defineCollection({
 	}),
 })
 
+const footerSocialCollection = defineCollection({
+
+    schema: z.object({
+
+        title: z.string(),
+        order: z.number(),
+        link: z.string(),
+        logo: z.string(),
+        live : z.boolean(),
+		
+	}),
+})
+
+const footerCompanyInfoCollection = defineCollection({
+
+    schema: z.object({
+
+        title: z.string(),
+        order: z.number(),
+        link: z.string(),
+        live : z.boolean(),
+		
+	}),
+})
+
 export const collections = {
 
     "footer-column": footerColumnCollection,
     "footer-row": footerwRowCollection,
     "footer-locations": footerLocationCollection,
+    "footer-socials": footerSocialCollection,
+    "footer-company-info": footerCompanyInfoCollection,
 
 }

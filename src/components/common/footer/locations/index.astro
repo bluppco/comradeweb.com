@@ -1,20 +1,16 @@
 ---
 
-// IMPORT ASTRO COLLECTION
-import { getCollection } from "astro:content"
-
-// IMPORT FOOTER COLLECTIONS
-let footer_location_data = await getCollection("footer-locations")
-footer_location_data = footer_location_data.filter( item => item.data.live ).sort( ( a, b ) => a.data.order - b.data.order )
-
 // IMPORT ASTRO ATOMS
 import HeadingSixLgBoldWhite from "@/atoms/atoms-diksha/headings/six/lg/bold/white/index.astro"
 import Link from "@/atoms/links/index.astro"
 import ParagraphSmGray from "@/atoms/atoms-diksha/paragraphs/sm/gray/index.astro"
 
+//GET ASTRO PROPS
+const { footer_location_data } = Astro.props
+
 ---
 
-<div class="flex flex-col flex-wrap gap-2 items-end">
+<div class="flex flex-col gap-2 items-end">
     <HeadingSixLgBoldWhite>Our Locations</HeadingSixLgBoldWhite>
     {
         footer_location_data.map( item => {
