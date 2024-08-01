@@ -22,7 +22,7 @@ const footerColumnCollection = defineCollection({
 
 })
 
-const footerwRowCollection = defineCollection({
+const footerRowCollection = defineCollection({
 
     schema: z.object({
 
@@ -75,7 +75,7 @@ const footerCompanyInfoCollection = defineCollection({
 export const collections = {
 
     "footer-column": footerColumnCollection,
-    "footer-row": footerwRowCollection,
+    "footer-row": footerRowCollection,
     "footer-locations": footerLocationCollection,
     "footer-socials": footerSocialCollection,
     "footer-company-info": footerCompanyInfoCollection,
