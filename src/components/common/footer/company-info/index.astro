@@ -1,0 +1,36 @@
+---
+
+//IMPORT ASTRO ATOMS
+import Link from "@/atoms/links/index.astro"
+import ParagraphSmGray from "@/atoms/atoms-diksha/paragraphs/sm/gray/index.astro"
+
+//GET ASTRO PROPS
+const { footer_company_info_data } = Astro.props
+
+---
+
+<div class="flex gap-4 flex-col-reverse lg:flex-row items-center">
+    <ParagraphSmGray>© 2024 Comrade Digital Marketing Agency</ParagraphSmGray>
+    <div class="flex gap-2 items-center">
+        {
+
+            footer_company_info_data.map( item => {
+
+                return (
+
+                    <Link
+                        aria_label = { item.data.title }
+                        href={ item.data.link } 
+                    >
+                        <ParagraphSmGray>{item.data.title} <span class="pl-2">|</span></ParagraphSmGray>
+                    </Link>
+
+                )
+
+            })
+
+        }
+        <!-- search bar  -->
+        <ParagraphSmGray><span class="material-symbols-rounded">search</span></ParagraphSmGray>
+    </div>
+</div>

@@ -1,11 +1,139 @@
 ---
 
+// IMPORT ASTRO COLLECTION
+import { getCollection } from "astro:content"
+
+// IMPORT FOOTER COLLECTIONS
+let footer_column_data = ( await getCollection( "footer-column" ) ).sort( ( a, b ) => a.data.order - b.data.order ).map( footer => ( { 
+    
+    ...footer,
+    data: {
+
+        ...footer.data,
+        items: footer.data.items.filter(item => item.live)
+
+    }
+
+}))
+
+let footer_location_data = await getCollection( "footer-locations" )
+footer_location_data = footer_location_data.filter( item => item.data.live ).sort( ( a, b ) => a.data.order - b.data.order )
+
+let footer_row_data = await getCollection( "footer-row" )
+footer_row_data = footer_row_data.filter( item => item.data.live ).sort( ( a, b ) => a.data.order - b.data.order )
+
+let footer_socials_data = await getCollection( "footer-socials" )
+footer_socials_data = footer_socials_data.filter( item => item.data.live ).sort( ( a, b ) => a.data.order - b.data.order )
+
+let footer_company_info_data = await getCollection( "footer-company-info" )
+footer_company_info_data = footer_company_info_data.filter( item => item.data.live ).sort( ( a, b ) => a.data.order - b.data.order )
+
 // IMPORT ASTRO LAYOUTS
 import Container from "@/layouts/container/index.astro"
 
+// IMPORT ASTRO COMPONENTS
+import Columns from "@/components/common/footer/columns/index.astro"
+import CompanyInfo from "@/components/common/footer/company-info/index.astro"
+import Locations from "@/components/common/footer/locations/index.astro"
+import Socials from "@/components/common/footer/socials/index.astro"
+
+// IMPORT ASTRO ATOMS
+import ButtonOutlinedPrimary from "@/atoms/atoms-diksha/buttons/outlined/primary/index.astro"
+import ButtonPrimaryShadow from "@/atoms/atoms-diksha/buttons/primary/shadow/index.astro"
+import HeadingSixLgBoldWhite from "@/atoms/atoms-diksha/headings/six/lg/bold/white/index.astro"
+import HeadingThreeXlBoldWhite from "@/atoms/atoms-diksha/headings/three/3xl/bold/white/index.astro"
+import Link from "@/atoms/links/index.astro"
+import ParagraphSemiboldGray from "@/atoms/atoms-diksha/paragraphs/semibold/gray/index.astro"
+import ParagraphSmGray from "@/atoms/atoms-diksha/paragraphs/sm/gray/index.astro"
+import ParagraphSmMediumGray from "@/atoms/atoms-diksha/paragraphs/sm/medium/gray/index.astro"
+import Picture from "@/atoms/picture/internal/contain/index.astro"
+
 ---
-<footer class="bg-black py-20">
+
+<footer class="bg-color-black py-20">
     <Container>
-        <p class="text-white">I am footer</p>
+        <div class="flex justify-between">
+            <div class="flex gap-2 w-1/3 items-start">
+                <div class="size-16">
+                    <Picture
+                        alternative_text = "footer-logo"
+                        source = "/logos/comrade-small-logo.svg"
+                    />
+                </div>
+                <HeadingThreeXlBoldWhite>Let's Grow Your Potential Leads?</HeadingThreeXlBoldWhite>
+            </div>
+            <div class="flex flex-col lg:flex-row gap-10 items-center">
+                <Link
+                    aria_label = "request a quote"
+                    href="/"
+                >
+                    <ButtonPrimaryShadow>
+                        Request a Quote
+                        <span class="material-symbols-rounded">trending_up</span>
+                    </ButtonPrimaryShadow>
+                </Link>
+                <Link
+                    aria_label = "request a quote"
+                    href="/"
+                >
+                <ButtonOutlinedPrimary> 
+                    <span class="material-symbols-rounded">call</span>
+                    (872) 242 1074
+                </ButtonOutlinedPrimary>
+                </Link>
+            </div>
+        </div>
+        <!-- footer content -->
+        <div class="flex justify-around gap-16 flex-wrap py-10">
+            <Columns footer_column_data={ footer_column_data }/>
+            <Locations footer_location_data={ footer_location_data }/>
+        </div>
+        <div class="flex flex-col-reverse md:flex-row justify-between items-end">
+            <div class="w-full md:w-2/3 flex flex-col gap-5 md:gap-10 lg:gap-20">
+                <div class="flex flex-col md:flex-row justify-between">
+                    <div class="flex gap-6">
+                        {
+        
+                            footer_row_data.map( item => {
+        
+                                return (
+        
+                                    <Link
+                                        aria_label = { item.data.title }
+                                        href={ item.data.link } 
+                                    >
+                                        <HeadingSixLgBoldWhite>{item.data.title}</HeadingSixLgBoldWhite>
+                                    </Link>
+        
+                                )
+        
+                            })
+                            
+                        }
+                    </div>
+                </div>
+                <ParagraphSmMediumGray>Comrade is an established, full service web design and digital marketing agency in Chicago, Miami, Los Angeles and Austin with the mission to achieve big returns for our clients.</ParagraphSmMediumGray>
+                <CompanyInfo footer_company_info_data={ footer_company_info_data }/>
+            </div>
+            <div class="flex flex-col gap-4 md:gap-6 items-center md:items-end md:w-1/3 w-full justify-between">
+                <HeadingSixLgBoldWhite>Headquarters</HeadingSixLgBoldWhite>
+                <div class="flex flex-col items-end">
+                    <ParagraphSemiboldGray>770 N Halsted Street, Suite 106</ParagraphSemiboldGray>
+                    <ParagraphSemiboldGray>Chicago, IL 60642</ParagraphSemiboldGray>
+                </div>
+                <ParagraphSemiboldGray>MON-FR: 9AM-5PM</ParagraphSemiboldGray>
+                <Link
+                    aria_label = "email"
+                    href="/"
+                >
+                    <ButtonOutlinedPrimary> 
+                        <span class="material-symbols-rounded">mail</span>
+                        info@comradeweb.com
+                    </ButtonOutlinedPrimary>
+                </Link>
+                <!-- socials -->
+                 <Socials footer_socials_data={ footer_socials_data }/>
+            </div>
+        </div>
     </Container>
 </footer>

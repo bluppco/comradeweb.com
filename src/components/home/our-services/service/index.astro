@@ -1,0 +1,38 @@
+---
+
+//IMPORT ASTRO ATOMS
+import HeadingFour2xlBold from "@/atoms/atoms-diksha/headings/four/2xl/bold/index.astro"
+import Link from "@/atoms/links/index.astro"
+import ParagraphLgSlate from "@/atoms/atoms-diksha/paragraphs/lg/slate/index.astro"
+import ParagraphSmUppercasePrimary from "@/atoms/atoms-diksha/paragraphs/sm/uppercase/primary/index.astro"
+
+//GET ASTRO PROPS
+const { 
+
+    button_text,
+    description,
+    link,
+    link_label,
+    title,
+
+} = Astro.props
+
+---
+
+<div class={`flex flex-col-reverse lg:flex-row justify-between items-center gap-12 py-10 px-20`}>
+    <div class="flex flex-col gap-6 w-full lg:w-2/5">
+        <HeadingFour2xlBold>{ title }</HeadingFour2xlBold>
+        <ParagraphLgSlate>{ description }</ParagraphLgSlate>
+        <Link
+            aria_label = { link_label }
+            href={ link }
+        >
+            <ParagraphSmUppercasePrimary>
+                { button_text }
+                <span class="hover:px-2">→</span>
+            </ParagraphSmUppercasePrimary>
+        </Link>
+    </div>
+    <slot />
+    <!-- add image component from parent  -->
+</div>

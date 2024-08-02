@@ -1,0 +1,26 @@
+---
+
+//GET ASTRO PROPS
+const {
+
+    id,
+    name,
+    placeholder,
+    required,
+    text,
+    type,
+
+} = Astro.props
+
+---
+
+<label for={ id } class="font-montserrat text-xs font-bold text-gray-700 uppercase">{ text }</label>
+<input 
+    id={ id } 
+    name={ name } 
+    placeholder={ placeholder }
+    type={ type } 
+    required={ required }
+    class="mt-2 px-4 block w-full h-12 border-gray-300 shadow-sm focus:border-color-primary focus:ring focus:ring-color-primary focus:ring-opacity-50 font-montserrat"
+>
+                            
