@@ -10,12 +10,12 @@ const stars = () => {
                         src="/icon/star.svg"
                     />
 
-            );
+            )
         }
 
         return stars
     
-    };
+    }
 }
 
 export default stars
