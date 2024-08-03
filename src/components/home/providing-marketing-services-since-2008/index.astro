@@ -64,19 +64,19 @@ const data = {
             <div class="flex flex-wrap gap-5 md:grid md:grid-cols-2 md:gap-20">
                 <div class="ml-8 pb-28  md:pb-0">
                     <div class="relative">
-                        <div class="mt-10 w-2/3 aspect-[2/3]">
+                        <div class="mt-10 w-2/3 aspect-[2/3] animate-spinner-grow">
                             <PictureInternal 
                                 alternative_text=""
                                 source="/image/marketing-services-Pricing.webp"
                             />
                         </div>
-                        <div class="absolute w-1/5 aspect-[7/8] -top-16 -left-5 shadow-xl">
+                        <div class="absolute w-1/5 aspect-[7/8] -top-16 -left-5 shadow-xl image-animated">
                             <PictureInternal 
                                 alternative_text=""
                                 source="/image/marketing-services-cases-increase.webp"
                             />
                         </div>
-                        <div class="absolute w-2/5 aspect-[4/3] -bottom-20 -left-5 shadow-xl">
+                        <div class="absolute w-2/5 aspect-[4/3] -bottom-20 -left-5 shadow-xl image-animated">
                             <PictureInternal 
                                 alternative_text=""
                                 source="/image/marketing-services-campaign-budget.webp"
@@ -142,3 +142,18 @@ const data = {
         </div>
     </Container>
 </section>
+
+<script>    
+    // SCROLL REVEAL FOR HEADING ANIMATION
+    import ScrollReveal from 'scrollreveal';
+    document.addEventListener('DOMContentLoaded', () => {
+        ScrollReveal().reveal('.image-animated', {
+            origin: 'left',
+            distance: '100px',
+            duration: 500,
+            delay: 200,
+            easing: 'ease-in-out',
+            reset: false,
+        });
+    });
+</script>
