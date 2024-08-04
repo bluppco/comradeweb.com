@@ -1,0 +1,81 @@
+---
+
+// IMPORT ASTRO LAYOUTS
+import Container from "@/layouts/container/index.astro"
+
+// IMPORT ASTRO ATOMS
+// import ButtonRed from "@/atoms/atoms-nandini/buttons/red/index.astro"
+import Link from "@/atoms/links/index.astro"
+import PictureInternal from "@/atoms/picture/internal/index.astro"
+
+// GET ASTRO PROPS
+const {
+    
+    button_link,
+    button_text,
+    favorite_link,
+    favorite_source,
+    menu_source,
+    phone_link,
+    phone_source,
+    number_link,
+    number_text,
+
+} = Astro.props
+
+---
+<header class="lg:hidden bg-white h-20 py-2 z-10 fixed top-0 w-full">
+    <Container>
+        <div class="flex justify-between items-center">
+            <!-- Comrade-icon link -->
+            
+            <div class="size-5 hidden md:block">
+                <PictureInternal
+                    alternative_text=""
+                    source={ menu_source }
+                />   
+            </div>
+            <div class="flex gap-4 items-center">
+                <div class="hidden md:block">
+                    <Link href={ phone_link }>
+                        <div class="size-5">
+                                <PictureInternal
+                                    alternative_text=""
+                                    source={ phone_source }
+                                />
+                        </div>
+                    </Link>
+                </div>
+                <div class="hidden sm:block">
+                    <Link aria_label={ button_link } href={ button_link }>
+                        <button class="text-white uppercase font-bold font-montserrat bg-blue-600 rounded-sm border-4 border-b-blue-800 hover:bg-gray-500 hover:border-b-gray-700 px-4 py-3 border-x-0 border-t-0">{ button_text }</button>
+                    </Link>
+                </div>
+                <div class="md:hidden">
+                    <Link href={ phone_link }>
+                        <div class="size-5">
+                                <PictureInternal
+                                    alternative_text=""
+                                    source={ phone_source }
+                                />
+                        </div>
+                    </Link>
+                </div>
+                <div class="size-5 md:hidden">
+                    <PictureInternal
+                        alternative_text=""
+                        source={ menu_source }
+                    />   
+                </div>
+                <Link href={ favorite_link }>
+                    <div class="w-3 aspect-ratio[1/2] hidden md:block">
+                            <PictureInternal
+                                alternative_text=""
+                                source={ favorite_source }
+                            />
+                    </div>
+                </Link>
+            </div>
+        </div>
+    </Container>
+</header>
