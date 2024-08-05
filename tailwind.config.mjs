@@ -59,7 +59,14 @@ module.exports = {
 			},
 			colors: {
 
-				"neon-gold":"#FDBD01",
+					primary: "#106ad0",
+					dark_pink: "#fed9d1",
+					light_pink: "#ffeedd",
+					light_blue:"#ebf2f9",
+					orange:"#e27111",
+					black: "#191919",
+          "neon-gold":"#FDBD01",
+
 
 			},
 			fontFamily: {

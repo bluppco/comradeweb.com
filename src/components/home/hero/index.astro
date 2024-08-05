@@ -1,0 +1,61 @@
+---
+
+//IMPORT ASTRO LAYOUTS
+import Container from "@/layouts/container/index.astro"
+
+//IMPORT ASTRO ATOMS
+import ButtonPrimary from "@/atoms/atoms-diksha/buttons/primary/index.astro"
+import ButtonPrimaryShadow from "@/atoms/atoms-diksha/buttons/primary/shadow/index.astro"
+import HeadingFourTwoXlBoldWhite from "@/atoms/atoms-diksha/headings/four/2xl/bold/white/index.astro"
+import HeadingOneSixXlBold from "@/atoms/atoms-diksha/headings/one/6xl/bold/index.astro"
+import ParagraphTwoXl from "@/atoms/atoms-diksha/paragraphs/2xl/index.astro"
+import Link from "@/atoms/links/index.astro"
+import Picture from "@/atoms/picture/internal/contain/index.astro"
+
+//CONSTANTS
+const content = {
+    title: "Generating Results through Performance Marketing",
+    description: "A full-service digital marketing company specializing in online marketing, SEO, PPC and web design to grow your revenue. Guaranteed!",
+    button_text: "Talk to Marketing experts",
+    button_href: "/",
+    image: "/images/comrade-award-winning-team.webp",
+}
+
+---
+
+<Container>
+    <div class="flex flex-col gap-10 md:flex-row w-full py-10 justify-around items-center lg:items-start">
+        <div class="w-full lg:w-1/2 px-10 flex flex-col gap-8 py-6">
+            <HeadingOneSixXlBold>{ content.title }</HeadingOneSixXlBold>
+            <ParagraphTwoXl>{ content.description }</ParagraphTwoXl>
+            <div>
+                <Link
+                    aria_label="Talk to marketing experts"
+                    href="/"
+                >
+                    <ButtonPrimaryShadow>{ content.button_text }</ButtonPrimaryShadow>
+                </Link>
+            </div>
+        </div>
+        <div class="w-full md:w-2/5 aspect-[5/6] group relative flex items-center justify-center">
+            <div class="absolute top-0 right-0 w-full h-full object-cover">
+                <Picture 
+                    alternative_text="Comrade Award winning team"
+                    source={ content.image }
+                />
+            </div>
+            <div class="z-10">
+                <Link
+                    aria_label="Watch our reel"
+                    href="/"
+                >
+                    <div class="flex gap-4 items-center">
+                        <ButtonPrimary>►</ButtonPrimary>
+                        <HeadingFourTwoXlBoldWhite>Watch our reel</HeadingFourTwoXlBoldWhite>
+                    </div>
+                    <!-- embed youtube video  -->
+                </Link>
+            </div>
+        </div>
+    </div>
+</Container>

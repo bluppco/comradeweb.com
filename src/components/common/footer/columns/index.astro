@@ -1,0 +1,45 @@
+---
+
+// IMPORT ASTRO ATOMS
+import HeadingSixLgBoldWhite from "@/atoms/atoms-diksha/headings/six/lg/bold/white/index.astro"
+import ParagraphSemiboldGray from "@/atoms/atoms-diksha/paragraphs/semibold/gray/index.astro"
+import Link from "@/atoms/links/index.astro"
+
+//GET ASTRO PROPS
+const { footer_column_data } = Astro.props
+
+---
+
+{
+
+    footer_column_data.map( footer => {
+
+        return (
+
+            <div class="flex flex-col gap-3 w-48">
+                <HeadingSixLgBoldWhite>{ footer.data.title }</HeadingSixLgBoldWhite>
+                {
+
+                    footer.data.items.map( item => {
+
+                        return (
+
+                            <Link
+                                aria_label = "request a quote"
+                                href={ item.link }
+                            >
+                                <ParagraphSemiboldGray>{ item.title }</ParagraphSemiboldGray>
+                            </Link>
+
+                        )
+
+                    })
+
+                }
+            </div>
+
+        )
+
+    })
+
+}

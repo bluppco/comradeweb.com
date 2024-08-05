@@ -1,0 +1,36 @@
+---
+
+//IMPORT ASTRO ATOMS
+import Link from "@/atoms/links/index.astro"
+import Picture from "@/atoms/picture/internal/contain/index.astro"
+
+//GET ASTRO PROPS
+const { footer_socials_data } = Astro.props
+
+---
+
+<div class="flex gap-8">
+    {
+
+        footer_socials_data.map( social => {
+
+            return (
+
+                <Link 
+                    aria_label={ social.data.title }
+                    href={ social.data.link }
+                >
+                    <div class="size-5">
+                        <Picture 
+                            alternative_title={ social.data.title }
+                            source={ social.data.logo } 
+                        />
+                    </div>
+                </Link>
+
+            )
+
+        })
+
+    }
+</div>
