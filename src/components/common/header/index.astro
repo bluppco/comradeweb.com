@@ -1,13 +1,119 @@
 ---
 
+// IMPORT ASTRO COLLECTION
+import { getCollection } from 'astro:content'
+
+// IMPORT HEADER COLLECTION
+let header = await getCollection('header')
+header = header.sort( ( a, b ) => a.data.order - b.data.order).filter( ( item ) => item.data.live )
+
+// IMPORT HEADER-HOVER-WHO-WE-ARE COLLECTION
+let headerhoverwhoweare = await getCollection('header-hover-who-we-serve')
+headerhoverwhoweare = headerhoverwhoweare.sort( ( a, b ) => a.data.order - b.data.order).filter( ( item ) => item.data.live )
+
+// IMPORT HEADER-HOVER-SERVICES-COLUMN-1 COLLECTION
+let headerhoverservicescolumn1 = await getCollection('header-hover-services-column-1')
+headerhoverservicescolumn1 = headerhoverservicescolumn1.sort( ( a, b ) => a.data.order - b.data.order).filter( ( item ) => item.data.live )
+
+// IMPORT HEADER-HOVER-SERVICES-COLUMN-2 COLLECTION
+let headerhoverservicescolumn2 = await getCollection('header-hover-services-column-2')
+headerhoverservicescolumn2 = headerhoverservicescolumn2.sort( ( a, b ) => a.data.order - b.data.order).filter( ( item ) => item.data.live )
+
+// IMPORT HEADER-HOVER-SERVICES-COLUMN-3 COLLECTION
+let headerhoverservicescolumn3 = await getCollection('header-hover-services-column-3')
+headerhoverservicescolumn3 = headerhoverservicescolumn3.sort( ( a, b ) => a.data.order - b.data.order).filter( ( item ) => item.data.live )
+
 // IMPORT ASTRO LAYOUTS
 import Container from "@/layouts/container/index.astro"
 
+// IMPORT ASTRO COMPONENTS
+import MobileHeader from "@/components/common/header/mobile-header/index.astro"
+import NavigationBar from "@/components/common/header/navigation-bar/index.astro"
+
+// IMPORT ASTRO ATOMS
+import ButtonBlue from "@/atoms/atoms-nandini/buttons/blue/index.astro"
+import Link from "@/atoms/links/index.astro"
+import ParagraphBold from "@/atoms/atoms-nandini/paragraphs/bold/index.astro"
+import PictureInternal from "@/atoms/picture/internal/index.astro"
+
+// IMPORT DATA FROM FRONT-MATTER
+import { frontmatter as button } from "@/content/header-contact-details/button.md"
+import { frontmatter as digitalmarketing } from "@/content/header-hover-services-title/digital-marketing.md"
+import { frontmatter as favorite } from "@/content/header-contact-details/favorite.md"
+import { frontmatter as number } from "@/content/header-contact-details/number.md"
+import { frontmatter as menu } from "@/content/header-icon/menu.md"
+import { frontmatter as phone } from "@/content/header-contact-details/phone.md"
+import { frontmatter as seoservices } from "@/content/header-hover-services-title/seo-services.md"
+import { frontmatter as webdevlopment } from "@/content/header-hover-services-title/web-devlopment.md"
+
+// HARDCODED DATA
+const button_text = button.title
+const button_link = button.link
+const digitalmarketing_text = digitalmarketing.title
+const favorite_link  = favorite.link
+const favorite_source = favorite.source
+const number_text  = number.title
+const number_link  = number.link
+const menu_source = menu.source
+const phone_link  = phone.link
+const phone_source  = phone.source
+const seoservices_text = seoservices.title
+const webdevlopment_text = webdevlopment.title
+
 ---
-<header class="bg-blue-600 h-12">
+<header class="hidden lg:block bg-white h-20 py-2 z-10 fixed top-0 w-full">
     <Container>
-        <section class="flex items-center h-full">
-            <p class="text-white">I am header</p>
-        </section>
+        <div class="flex justify-between items-center">
+            <!-- Comrade-icon link -->
+            <div>
+                <NavigationBar data = { header }
+                    datawhoweserve = { headerhoverwhoweare }
+                    dataservicescolumn1 = { headerhoverservicescolumn1 }
+                    dataservicescolumn2 = { headerhoverservicescolumn2 }
+                    dataservicescolumn3 = { headerhoverservicescolumn3 }
+                    servicescolumntitle1 = { digitalmarketing_text }
+                    servicescolumntitle2 = { seoservices_text }
+                    servicescolumntitle3 = { webdevlopment_text }
+                />
+            </div>
+            <div class="flex gap-4 items-center">
+                <Link href={ phone_link }>
+                    <div class="size-5">
+                            <PictureInternal
+                                alternative_text=""
+                                source={ phone_source }
+                            />
+                    </div>
+                </Link>
+                <Link href={ number_link }>
+                    <ParagraphBold>{ number_text }</ParagraphBold>
+                </Link>
+                <Link aria_label={ button_link } href={ button_link }>
+                    <ButtonBlue>{ button_text }</ButtonBlue>
+                </Link>
+                <Link href={ favorite_link }>
+                    <div class="w-3 aspect-ratio[1/2]">
+                            <PictureInternal
+                                alternative_text=""
+                                source={ favorite_source }
+                            />
+                    </div>
+                </Link>
+            </div>
+        </div>
     </Container>
 </header>
+
+<MobileHeader
+    
+    button_link={ button_link },
+    button_text={ button_text },
+    favorite_link={ favorite_link },
+    favorite_source={ favorite_source },
+    menu_source={ menu_source },
+    phone_link={ phone_link },
+    phone_source={ phone_source },
+    number_link={ number_link },
+    number_text={ number_text },
+
+/>

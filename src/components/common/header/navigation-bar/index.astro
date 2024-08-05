@@ -1,0 +1,186 @@
+---
+
+// IMPORT ASTRO ATOMS
+import Link from "@/atoms/links/index.astro"
+import ListItem from "@/atoms/atoms-nandini/list-items/index.astro"
+import ListItemWhite from "@/atoms/atoms-nandini/list-items/white/index.astro"
+import ListItemGray from "@/atoms/atoms-nandini/list-items/gray/index.astro"
+import ParagraphExtraLargeBoldCapitalizeWhite from "@/atoms/atoms-nandini/paragraphs/xl/bold/capitalize/white/index.astro"
+
+// GET ASTRO PROPS
+const { 
+    data, 
+    datawhoweserve, 
+    dataservicescolumn1, 
+    dataservicescolumn2, 
+    dataservicescolumn3, 
+    servicescolumntitle1, 
+    servicescolumntitle2, 
+    servicescolumntitle3,
+} = Astro.props
+
+---
+<nav>
+    <ul class="flex flex-wrap justify-center gap-8 items-center">
+        {
+
+            data.map((item, index) => {
+
+                if( index == 0 ){
+
+                    return ( 
+
+                            <div class="group">
+                                <ListItem>
+                                    <div class="mt-6 mb-6">
+                                        <Link aria-label={ "explore " + item.data.title }
+                                            href={ item.data.link }
+                                        >
+                                                { item.data.title }<svg class="size-3 inline-block ml-2" height="512px" id="Layer_1" style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="512px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><polygon points="396.6,160 416,180.7 256,352 96,180.7 115.3,160 256,310.5 "/></svg>
+                                        </Link>
+                                    </div>  
+                                </ListItem>
+
+                                <ul class="hidden group-hover:block bg-black p-10 space-y-5 fixed">
+                                    {
+
+                                        datawhoweserve.map( ( item ) => {
+
+                                            return (
+
+                                                <ListItemWhite>
+                                                    <Link aria-label={ "explore " + item.data.title }
+                                                        href={ item.data.link }
+                                                    >
+                                                            { item.data.title }
+                                                    </Link>
+                                                </ListItemWhite>
+
+                                            )
+
+                                        })
+
+                                    }
+                                </ul>
+                            </div>
+
+                    )
+
+                } else if ( index == 1 ){
+
+                    return ( 
+
+                            <div class="group">
+                                <ListItem>
+                                    <div class="mt-6 mb-6">
+                                        <Link aria-label={ "explore " + item.data.title }
+                                            href={ item.data.link }
+                                        >
+                                                { item.data.title }<svg class="size-3 inline-block ml-2" height="512px" id="Layer_1" style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="512px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><polygon points="396.6,160 416,180.7 256,352 96,180.7 115.3,160 256,310.5 "/></svg>
+                                        </Link>
+                                    </div>
+                                </ListItem>
+                                <div class="hidden group-hover:block fixed">
+                                    <div class="flex justify-between gap-10 bg-black px-10 pb-5">
+                                        <div class="bg-black py-10 space-y-5">
+                                            <ParagraphExtraLargeBoldCapitalizeWhite>{ servicescolumntitle1 }</ParagraphExtraLargeBoldCapitalizeWhite>
+                                            <ul class="bg-black space-y-5">
+                                                {
+
+                                                    dataservicescolumn1.map( ( item ) => {
+
+                                                        return (
+
+                                                            <ListItemGray>
+                                                                <Link aria-label={ "explore " + item.data.title }
+                                                                    href={ item.data.link }
+                                                                >
+                                                                        { item.data.title }
+                                                                </Link>
+                                                            </ListItemGray>
+
+                                                        )
+
+                                                    })
+
+                                                }
+                                            </ul>
+                                        </div>
+                                        <div class="bg-black py-10 space-y-5">
+                                            <ParagraphExtraLargeBoldCapitalizeWhite>{ servicescolumntitle2 }</ParagraphExtraLargeBoldCapitalizeWhite>
+                                            <ul class="bg-black space-y-5">
+                                                {
+
+                                                    dataservicescolumn2.map( ( item ) => {
+
+                                                        return (
+
+                                                            <ListItemGray>
+                                                                <Link aria-label={ "explore " + item.data.title }
+                                                                    href={ item.data.link }
+                                                                >
+                                                                        { item.data.title }
+                                                                </Link>
+                                                            </ListItemGray>
+
+                                                        )
+
+                                                    })
+
+                                                }
+                                            </ul>
+                                        </div>
+                                        <div class="bg-black py-10 space-y-5">
+                                            <ParagraphExtraLargeBoldCapitalizeWhite>{ servicescolumntitle3 }</ParagraphExtraLargeBoldCapitalizeWhite>
+                                            <ul class="bg-black space-y-5">
+                                                {
+
+                                                    dataservicescolumn3.map( ( item ) => {
+
+                                                        return (
+
+                                                            <ListItemGray>
+                                                                <Link aria-label={ "explore " + item.data.title }
+                                                                    href={ item.data.link }
+                                                                >
+                                                                        { item.data.title }
+                                                                </Link>
+                                                            </ListItemGray>
+
+                                                        )
+
+                                                    })
+
+                                                }
+                                            </ul>   
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+
+                    )
+
+                }
+                
+                else {
+
+                    return ( 
+
+                    <ListItem>
+                                <Link aria-label={ "explore " + item.data.title }
+                                    href={ item.data.link }
+                                >
+                                        { item.data.title } 
+                                </Link>
+                            </ListItem>
+
+                    )
+
+                }
+
+            })
+
+        }
+    </ul>
+</nav>

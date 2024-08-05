@@ -1,0 +1,200 @@
+---
+
+// IMPORT ASTRO LAYOUTS
+import Container from "@/layouts/container/index.astro"
+
+// IMPORT JSX COMPONENT
+import Cards from "@/components/home/reviews/cards/index.astro"
+import Stars from "@/components/home/reviews/stars/index.jsx"
+
+// IMPORT ASTRO ATOMS
+import Link from "@/atoms/links/index.astro"
+import HeadingFourBold from "@/atoms/atoms-nandini/headings/four/bold/index.astro"
+import HeadingTwo4xlBoldCenter from "@/atoms/atoms-nandini/headings/two/5xl/bold/center/index.astro"
+import ParagrapExtraSmallBlue from "@/atoms/atoms-nandini/paragraphs/xs/blue/index.astro"
+import ParagraphGray from "@/atoms/atoms-nandini/paragraphs/gray/index.astro"
+import ParagraphItalic from "@/atoms/atoms-nandini/paragraphs/italic/index.astro"
+import ParagraphXlBold from "@/atoms/atoms-nandini/paragraphs/xl/bold/index.astro"
+import ParagraphBoldCenterAmber from "@/atoms/atoms-nandini/paragraphs/bold/center/amber/index.astro"
+import PictureInternal from "@/atoms/picture/internal/index.astro"
+
+// CARD ARRAY
+const cards =[
+
+    {
+        alternative_text:"Image",
+        description:"Driving consistent yearly growth with their experience and consulting, Comrade Marketing Agency has proven itself to be a dedicated digital marketing company. Internal stakeholders for the client praise Comrade for their attentiveness and preparation. Customers can expect an available partner.",
+        indetail:"View case",
+        icon_source:"/icon/review-facebook.svg",
+        image_source:"/image/review-1.webp",
+        link:"/portfolio/blackhawk-supply/",
+        title:"Jo Ann, COO / Blackhawk Supply",
+    },
+    {
+        alternative_text:"Image",
+        description:"The new website has seen an increase in traffic, lead conversion, and sales, meeting the expectations of the internal team. Comrade Digital Marketing Agency is a quick-working and efficient internet marketing company, establishing an effective workflow. The team is professional, driven, and knowledgeable.",
+        indetail:"View case",
+        icon_source:"/icon/reviews-google.svg",
+        image_source:"/image/review-2.webp",
+        link:"/portfolio/american-tent/",
+        title:"Elizabeth Paulson, CMO / American Tent",
+    },
+    {
+        alternative_text:"Image",
+        description:"Website traffic has increased significantly since the engagement began, along with the ROI and leads generated. The vendor leads a research-backed, thorough approach complemented by well-structured task management. They go above and beyond, doing everything they can to help stakeholders succeed.",
+        indetail:"View case",
+        icon_source:"/icon/reviews-trustpilot.svg",
+        image_source:"/image/review-3.webp",
+        link:"/portfolio/the-international-kitchen/",
+        title:"Peg Kern, COO / The International Kitchen",
+    },
+
+]
+
+// IMAGE ARRAY
+const images =[
+    
+    {
+        alternative_text:"facebook-icon",
+        source:"/icon/review-facebook.svg",
+    },
+    {
+        alternative_text:"upcity-icon",
+        source:"/icon/reviews-upcity.svg",
+    },
+    {
+        alternative_text:"trustpilot-icon",
+        source:"/icon/reviews-trustpilot.svg",
+    },
+    {
+        alternative_text:"google-icon",
+        source:"/icon/reviews-google.svg",
+    },
+    {
+        alternative_text:"clutch-icon",
+        source:"/icon/reviews-clutch.svg",
+    },
+    {
+        alternative_text:"yelp-icon",
+        source:"/icon/reviews-yelp.svg",
+    },
+
+]
+
+// HARDCODED DATA
+const data = {
+
+    description:"REVIEWS",
+    ratings:"4.9",
+    sub_title:"Based on 160 user review from",
+    title:"330+ clients rely on Comrade Marketing Agency",
+
+}
+
+---
+<section class="my-20">
+    <Container>
+        <div class="space-y-10">
+            <ParagraphBoldCenterAmber>{ data.description }</ParagraphBoldCenterAmber>
+            <HeadingTwo4xlBoldCenter>{ data.title }</HeadingTwo4xlBoldCenter>
+            <div class="flex flex-wrap gap-5 justify-center">
+                <div class="sm:flex gap-4 items-center justify-center">
+                    <div class="flex gap-2">
+                        <div class="flex gap-2">
+                            <Stars/>
+                        </div>
+                        <ParagraphXlBold>{ data.ratings }</ParagraphXlBold>
+                    </div>
+                    <ParagraphGray>{ data.sub_title }</ParagraphGray>
+                </div>
+                <div class="flex flex-wrap sm:flex gap-4 justify-center items-center">
+                    {
+    
+                        images.map( ( item , index ) => {
+
+                            if ( index == 5 ){
+
+                                return (
+    
+                                    <div>
+                                        <div class="w-20 aspect-[2/1]">
+                                            <PictureInternal
+                                                alternative_text={ item.alternative_text }
+                                                source={ item.source }
+                                            />
+                                        </div>
+                                    </div>
+                                
+                                )
+
+                            } else {
+
+                                return (
+
+                                    <div>
+                                        <div class="w-20 aspect-[4/1]">
+                                            <PictureInternal
+                                                alternative_text={ item.alternative_text }
+                                                source={ item.source }
+                                            />
+                                        </div>
+                                    </div>
+    
+                                )
+
+                            }
+    
+                            
+    
+                        })
+    
+                    }
+                    
+                </div>
+            </div>
+            
+            <!-- <Cards /> -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center gap-10 xl:mx-52 2xl:mx-72 card-animated">
+                
+                    {
+
+                        cards.map( ( item ) =>{
+
+                            return ( 
+
+                                    <Cards
+                                        
+                                        alternative_text={ item.alternative_text }
+                                        description={ item.description }
+                                        icon_source={ item.icon_source }
+                                        image_source={ item.image_source }
+                                        indetail={ item.indetail }
+                                        link={ item.link }
+                                        title={ item.title }
+                                    
+                                    />
+
+                            )
+
+                        })
+
+                    }
+            </div>
+        </div>
+    </Container>
+</section>
+
+<script>    
+    // SCROLL REVEAL FOR HEADING ANIMATION
+    import ScrollReveal from 'scrollreveal';
+    document.addEventListener('DOMContentLoaded', () => {
+        ScrollReveal().reveal('.card-animated', {
+            origin: 'right',
+            distance: '100px',
+            duration: 700,
+            delay: 300,
+            easing: 'ease-in-out',
+            reset: false,
+        });
+    });
+</script>

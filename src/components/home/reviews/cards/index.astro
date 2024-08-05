@@ -1,0 +1,58 @@
+---
+
+// IMPORT JSX COMPONENT
+import Stars from "@/components/home/reviews/stars/index.jsx"
+
+// IMPORT ASTRO ATOMS
+import Link from "@/atoms/links/index.astro"
+import HeadingFourBold from "@/atoms/atoms-nandini/headings/four/bold/index.astro"
+import ParagrapExtraSmallBlue from "@/atoms/atoms-nandini/paragraphs/xs/blue/index.astro"
+import ParagraphItalic from "@/atoms/atoms-nandini/paragraphs/italic/index.astro"
+import PictureInternal from "@/atoms/picture/internal/index.astro"
+
+// GET ASTRO PROPS
+const {
+
+    alternative_text,
+    description,
+    icon_source,
+    image_source,
+    indetail,
+    link,
+    title,
+
+} = Astro.props
+
+---
+<div class="border p-4">
+    <div class="flex justify-between pb-5">
+        <div class="flex">
+            <Stars/>
+        </div>
+        <div class="w-20 aspect-[4/1]">
+            <PictureInternal
+                alternative_text={ alternative_text }
+                source={ icon_source }
+            />
+        </div>
+    </div>
+    <div class="space-y-10">
+        <div class="flex gap-2">
+            <div class="size-20 rounded-xl overflow-hidden">
+                <PictureInternal
+                    alternative_text={ alternative_text }
+                    source={ image_source }
+                />
+            </div>
+            <div class="flex items-center">
+                <HeadingFourBold>{ title }</HeadingFourBold>
+            </div>
+        </div>
+        <ParagraphItalic>{ description }</ParagraphItalic>
+        <div>
+            <Link aria_label={ indetail } href={ link }>
+                <ParagrapExtraSmallBlue>{ indetail }</ParagrapExtraSmallBlue>
+            </Link>
+        </div>                       
+    </div>
+</div>

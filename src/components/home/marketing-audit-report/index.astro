@@ -1,0 +1,145 @@
+---
+
+// IMPORT ASTRO LAYOUTS
+import Container from "@/layouts/container/index.astro"
+
+// IMPORT ASTRO ATOMS
+import ButtonBlue from "@/atoms/atoms-nandini/buttons/blue/index.astro"
+import HeadingTwo3xlbold from "@/atoms/atoms-nandini/headings/two/3xl/bold/index.astro"
+import Input from "@/atoms/atoms-nandini/inputs/input/index.astro"
+import ParagraphBaseBold from "@/atoms/atoms-nandini/paragraphs/base/bold/index.astro"
+import ParagraphBold from "@/atoms/atoms-nandini/paragraphs/bold/index.astro"
+import PictureInternal from "@/atoms/picture/internal/index.astro"
+
+// LIST ARRAY1
+const list1 = [
+
+    {
+        alternative_text:"Icon",
+        source:"/icon/done.svg",
+        text:"Website Speed"
+    },
+    {
+        alternative_text:"Icon",
+        source:"/icon/done.svg",
+        text:"Backlink Quality"
+    },
+    {
+        alternative_text:"Icon",
+        source:"/icon/done.svg",
+        text:"Competitors Rank"
+    },
+    
+]
+
+// LIST ARRAY2
+const list2 = [
+
+    {
+        alternative_text:"Icon",
+        source:"/icon/done.svg",
+        text:"SEO Performance"
+    },
+    {
+        alternative_text:"Icon",
+        source:"/icon/done.svg",
+        text:"Content Performance"
+    },
+    {
+        alternative_text:"Icon",
+        source:"/icon/done.svg",
+        text:"Conversion Rate"
+    },
+    
+]
+
+// HARDCODED DATA
+const data = {
+
+    button:"get report",
+    description:"Our marketing experts will conduct a free research analysis to identify areas for growth.",
+    title:"Take your business to the next level. Book an expert marketing audit today",
+
+}
+
+---
+<section class="relative my-10">
+    <Container>
+        <div class="bg-gradient-to-r from-orange-100 to-red-100 py-10 pl-10">
+            <div class="space-y-32 sm:space-y-48 md:space-y-0">
+                <div class="absolute -top-20 left-20 sm:left-52 md:hidden animate-spinner-grow">
+                    <div class="w-80 aspect-[4/3] rounded-xl overflow-hidden">
+                        <PictureInternal
+                            alternative_text="Image"
+                            source="/image/market-audit-report.webp"
+                        />
+                    </div>
+                </div>
+                <div class="md:grid md:grid-cols-2 gap-10">
+                    <div class="space-y-5">
+                        <HeadingTwo3xlbold>{ data.title }</HeadingTwo3xlbold>
+                        <div class="grid grid-rows-2 gap-2 sm:gap-0 sm:flex sm:bg-white rounded-md sm:relative sm:py-6">
+                            <Input />
+                            <div class="sm:absolute sm:mt-2 sm:right-0 sm:top-0">
+                                <ButtonBlue>{ data.button }</ButtonBlue>
+                            </div>
+                        </div>
+                        <ParagraphBold>{ data.description }</ParagraphBold>
+                        <div class="space-y-2 lg:flex gap-4">
+                            <div>
+                                {  
+                                    
+                                    list1.map( ( item ) =>{
+    
+                                        return (
+    
+                                                <ParagraphBaseBold><span class="size-5 inline-block pt-2 mr-2">
+                                                    <PictureInternal
+                                                        alternative_text={ item.alternative_text }
+                                                        source={ item.source }
+                                                    />
+                                                </span>{ item.text }</ParagraphBaseBold>
+    
+                                        )
+    
+                                    })
+            
+                                }
+                                
+                            </div>
+                            <div>
+                                {  
+                                    
+                                    list2.map( ( item ) =>{
+    
+                                        return (
+    
+                                                <ParagraphBaseBold><span class="size-5 inline-block pt-2 mr-2">
+                                                    <PictureInternal
+                                                        alternative_text={ item.alternative_text }
+                                                        source={ item.source }
+                                                    />
+                                                </span>{ item.text }</ParagraphBaseBold>
+    
+                                        )
+    
+                                    })
+            
+                                }
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="hidden md:block my-5 overflow-hidden animate-spinner-grow">
+                        <div class="h-full aspect-[4/3] rounded-xl overflow-hidden">
+                            <PictureInternal
+                                alternative_text="Image"
+                                source="/image/market-audit-report.webp"
+                            />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </Container>
+</section>
