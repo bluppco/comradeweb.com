@@ -67,19 +67,19 @@ const service3 = {
                 title = { service1.title }
             >
                 <div class="group relative w-full lg:w-2/5">
-                    <div class="w-80 aspect-video absolute -top-10 -right-20 rounded">
+                    <div class="w-80 aspect-video absolute -top-10 -right-20 rounded image-animated2">
                         <Picture
                             alternative_text = "web-design-review"
                             source = "/images/services/service-1/small-review.webp"
                         />
                     </div>
-                    <div class="w-full aspect-square rounded">
+                    <div class="w-full aspect-square rounded animate-spinner-grow">
                         <Picture
                             alternative_text = "web-design-image"
                             source = "/images/services/service-1/main-image.webp"
                         />
                     </div>
-                    <div class="w-72 aspect-video absolute -bottom-10 -left-20 rounded">
+                    <div class="w-72 aspect-video absolute -bottom-10 -left-20 rounded image-animated">
                         <Picture
                             alternative_text = "web-design-graph"
                             source = "/images/services/service-1/wave-with-percent.webp"
@@ -95,13 +95,13 @@ const service3 = {
                 title = { service2.title }
             >
                 <div class="group relative w-full lg:w-2/5">
-                    <div class="w-full aspect-square rounded-xl">
+                    <div class="w-full aspect-square rounded-xl animate-spinner-grow">
                         <Picture
                             alternative_text = "seo-services-image"
                             source = "/images/services/service-2/main-image.webp"
                         />
                     </div>
-                    <div class="w-72 aspect-video absolute -bottom-10 -right-20 rounded">
+                    <div class="w-72 aspect-video absolute -bottom-10 -right-20 rounded image-animated2">
                         <Picture
                             alternative_text = "seo-services-table"
                             source = "/images/services/service-2/table-with-results.webp"
@@ -117,13 +117,13 @@ const service3 = {
                 title = { service3.title }
             >
                 <div class="group relative w-full lg:w-2/5">
-                    <div class="w-40 aspect-video absolute -top-10 -left-20 rounded">
+                    <div class="w-40 aspect-video absolute -top-10 -left-20 rounded image-animated">
                         <Picture
                             alternative_text = "facebook"
                             source = "/images/services/service-3/facebook.webp"
                         />
                     </div>
-                    <div class="w-full aspect-square rounded">
+                    <div class="w-full aspect-square rounded animate-spinner-grow">
                         <Picture
                             alternative_text = "roi-image"
                             source = "/images/services/service-3/main-image.webp"
@@ -134,3 +134,26 @@ const service3 = {
         </div>
     </div>
 </Container>
+
+<script>    
+    // SCROLL REVEAL FOR HEADING ANIMATION
+    import ScrollReveal from 'scrollreveal';
+    document.addEventListener('DOMContentLoaded', () => {
+        ScrollReveal().reveal('.image-animated', {
+            origin: 'left',
+            distance: '100px',
+            duration: 500,
+            delay: 200,
+            easing: 'ease-in-out',
+            reset: false,
+        });
+        ScrollReveal().reveal('.image-animated2', {
+            origin: 'right',
+            distance: '100px',
+            duration: 500,
+            delay: 200,
+            easing: 'ease-in-out',
+            reset: false,
+        });
+    });
+</script>
